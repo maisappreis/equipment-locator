@@ -15,6 +15,9 @@ It also allows:
 - Pinia
 - Leaflet
 
+![app](https://github.com/user-attachments/assets/e90bc0a7-70d8-4298-b0ab-169b7092025a)
+
+
 ## 🌱 On Frontend Development
 
 ### 🛠️ Installation
