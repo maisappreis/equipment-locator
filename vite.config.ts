@@ -8,7 +8,8 @@ export default defineConfig({
   plugins: [
     vue(),
   ],
-  base: '/equipment-locator/',
+  // base: '/equipment-locator/',
+  base: './',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

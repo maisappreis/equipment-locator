@@ -18,7 +18,7 @@ export const useApiStore = defineStore('api', () => {
 
     const fetchPositionHistory = async () => {
         try {
-            const response = await fetch("/equipment-locator/data/equipmentPositionHistory.json");
+            const response = await fetch("/data/equipmentPositionHistory.json");
             equipmentPositionHistory.value = await response.json();
         } catch (error) {
             console.error("Erro ao carregar as posições dos equipamentos:", error);
@@ -27,7 +27,7 @@ export const useApiStore = defineStore('api', () => {
     
     const fetchEquipments = async () => {
         try {
-            const response = await fetch("/equipment-locator/data/equipment.json");
+            const response = await fetch("/data/equipment.json");
             equipments.value = await response.json();
         } catch (error) {
             console.error("Erro ao carregar os equipamentos:", error);
@@ -36,7 +36,7 @@ export const useApiStore = defineStore('api', () => {
     
     const fetchEquipmentsModel = async () => {
         try {
-            const response = await fetch("/equipment-locator/data/equipmentModel.json");
+            const response = await fetch("/data/equipmentModel.json");
             equipmentsModel.value = await response.json();
         } catch (error) {
             console.error("Erro ao carregar os modelos dos equipamentos:", error);
@@ -45,7 +45,7 @@ export const useApiStore = defineStore('api', () => {
     
     const fetchStateHistory = async () => {
         try {
-            const response = await fetch("/equipment-locator/data/equipmentStateHistory.json");
+            const response = await fetch("/data/equipmentStateHistory.json");
             equipmentStateHistory.value = await response.json();
         } catch (error) {
             console.error(
@@ -57,7 +57,7 @@ export const useApiStore = defineStore('api', () => {
     
     const fetchState = async () => {
         try {
-            const response = await fetch("/equipment-locator/data/equipmentState.json");
+            const response = await fetch("/data/equipmentState.json");
             equipmentState.value = await response.json();
         } catch (error) {
             console.error(
