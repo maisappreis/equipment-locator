@@ -1,38 +1,38 @@
-# 
-name: Deploy Vue 3 App
+name: Deploy to GitHub Pages
 
-# Dispara o fluxo de trabalho em pushes para o branch principal
 on:
   push:
     branches:
-      - main
+      - main # Substitua pelo nome do branch principal do seu repositório
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-    # Checa o código do repositório
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      # 1. Checkout do código
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    # Configura o Node.js
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
+      # 2. Configuração do Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20 # Use a versão adequada para o seu projeto
 
-    # Instala as dependências
-    - name: Install dependencies
-      run: npm install
+      # 3. Instalar dependências
+      - name: Install dependencies
+        run: npm install
 
-    # Realiza o build do projeto
-    - name: Build project
-      run: npm run build
+      # 4. Gerar o build
+      - name: Build project
+        run: npm run build
 
-    # Faz o deploy para o GitHub Pages
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.EQUIPMENT_LOCATOR }}
-        publish_dir: ./dist
+      # 5. Deploy para GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist # Publicar a pasta dist gerada
