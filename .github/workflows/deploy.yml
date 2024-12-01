@@ -1,0 +1,38 @@
+# 
+name: Deploy Vue 3 App
+
+# Dispara o fluxo de trabalho em pushes para o branch principal
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checa o código do repositório
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Configura o Node.js
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    # Instala as dependências
+    - name: Install dependencies
+      run: npm install
+
+    # Realiza o build do projeto
+    - name: Build project
+      run: npm run build
+
+    # Faz o deploy para o GitHub Pages
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
